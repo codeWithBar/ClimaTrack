@@ -1,0 +1,27 @@
+{
+  "name": "climatrack",
+  "version": "1.0.0",
+  "description": "This project is about implementing a backend service that talks to the **https://open-meteo.com/** to get real life weather data.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Barlas Söker",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "joi": "^17.13.3",
+    "mongoose": "^8.4.3",
+    "openmeteo": "^1.1.4",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.8",
+    "nodemon": "^3.1.4",
+    "winston": "^3.13.0",
+    "winston-mongodb": "^5.1.1"
+  }
+}
