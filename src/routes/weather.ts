@@ -8,36 +8,42 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   const { lat, lon } = req.query;
 
-  if (!lat || !lon) {
-    return res.status(400).send("Latitude and Longitude are required");
+  // Validate query parameters
+  const { error, value } = validateWeather({ latitude: lat, longitude: lon });
+
+  if (error) {
+    console.log("Validation error:", error.details[0]);
+    return res.status(400).send(error.details[0].message);
   }
 
   console.log("Received request with parameters:", { lat, lon });
 
   try {
+    console.log("Making request to OpenWeatherMap API");
     const response = await apiClient.get("/weather", {
       params: {
-        lat: lat,
-        lon: lon,
-        appid: process.env.API_KEY,
+        lat: value.latitude, // Use the validated value from Joi
+        lon: value.longitude, // Use the validated value from Joi
+        appid: process.env.API_KEY, // Use the API key directly from the environment variable
         units: "metric",
       },
     });
     console.log("Response from OpenWeatherMap API:", response.data);
 
     const weatherData = new Weather({
-      latitude: Number(lat),
-      longitude: Number(lon),
+      latitude: value.latitude, // Use the validated value from Joi
+      longitude: value.longitude, // Use the validated value from Joi
       data: response.data,
     });
+
     console.log("Saving weather data to MongoDB:", weatherData);
     await weatherData.save();
     console.log("Weather data saved successfully");
 
     res.json(weatherData);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Error retrieving weather data");
+    console.error("Error retrieving weather data or saving to MongoDB:", error);
+    res.status(500).send("Error retrieving weather data or saving to MongoDB");
   }
 });
 

@@ -4,7 +4,7 @@
   "description": "This project is about implementing a backend service that talks to the **https://open-meteo.com/** to get real life weather data.",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/index.ts",
+    "start": "nodemon ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Barlas Söker",
@@ -13,7 +13,7 @@
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "joi": "^17.13.3",
+    "joi": "^17.11.0",
     "mongoose": "^8.4.3",
     "ts-node": "^10.9.2"
   },
