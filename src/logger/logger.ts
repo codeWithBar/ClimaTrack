@@ -1,7 +1,5 @@
 import winston from "winston";
 import "winston-mongodb";
-import "dotenv/config";
-
 winston.addColors({ info: ["green", "bold"] });
 
 export const logger = winston.createLogger({

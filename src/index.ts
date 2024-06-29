@@ -1,6 +1,5 @@
 import express from "express";
 import mongoose from "mongoose";
-import "dotenv/config";
 import { logger } from "./logger/logger";
 import start from "./startup/routes";
 

@@ -4,12 +4,13 @@
   "description": "This project is about implementing a backend service that talks to the **https://open-meteo.com/** to get real life weather data.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/index.ts",
+    "start": "dotenvx run -- nodemon ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Barlas Söker",
   "license": "MIT",
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.0.1",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

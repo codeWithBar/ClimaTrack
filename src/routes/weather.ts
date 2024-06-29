@@ -1,7 +1,6 @@
 import express from "express";
 import apiClient from "../services/api-client";
 import { Weather, validateWeather } from "../models/Weather";
-import "dotenv/config";
 
 const router = express.Router();
 
