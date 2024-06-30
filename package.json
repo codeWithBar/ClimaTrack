@@ -1,7 +1,7 @@
 {
   "name": "climatrack",
   "version": "1.0.0",
-  "description": "This project is about implementing a backend service that talks to the **https://open-meteo.com/** to get real life weather data.",
+  "description": "This project is about implementing a backend service that talks to the **https://openweathermap.org/** to get real life weather data.",
   "main": "index.js",
   "scripts": {
     "start": "dotenvx run -- nodemon ./src/index.ts",
